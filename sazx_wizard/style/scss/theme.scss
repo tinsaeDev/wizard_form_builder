@@ -13,17 +13,15 @@ body {
 
   //   Neutral colors
 
-  --sw-color-neu-primary: #3e3d3e;
-//   --sw-color-neu-secondary: #928893;
-//   --sw-color-neu-thershary: #928893;
+  --sw-color-neu-primary: #fff;
+  --sw-color-neu-secondary: #000;
+  --sw-color-neu-thershary: #000;
 
   //   Negetive colors
 
   --sw-color-neg-primary: #ff00ba;
-//   --sw-color-neg-secondary: rgb(248, 206, 247);
+  //   --sw-color-neg-secondary: rgb(248, 206, 247);
   --sw-color-neg-thershary: #ffffff;
-
-
 }
 
 .sazx-wizard {
@@ -31,7 +29,24 @@ body {
 
   & > .nav {
     & > .list {
-      & > .item {
+      & .item-wrapper {
+        color: var(--sw-color-thershary);
+
+        & > .icon {
+          background-color: var(--sw-color-secondary);
+          &:before {
+            color: var(--sw-color-thershary);
+          }
+        }
+      }
+
+      .item-wrapper.current {
+        color: var(--sw-color-neu-primary);
+        .icon {
+            &:before {
+                color: var(--sw-color-neu-primary);
+            }
+          }
       }
     }
   }
@@ -47,8 +62,8 @@ body {
 
       .button.previous {
         background: transparent;
-        color: var(--sw-color-neu-primary);
-        border: solid 1px var(--sw-color-neu-primary);
+        color: var(--sw-color-neu-thershary);
+        border: solid 1px var(--sw-color-neu-thershary);
       }
       .button.cancel {
         background: var(--sw-color-neg-primary);
