@@ -27,57 +27,83 @@
                 <div id="wizwiz" > 
                     
                 <div class="sazx-wizard l-flex l-flex-row">
+                    
+                    <!-- :Begin Wizard Side progress  -->
                     <div class="nav">
     
                         <div class="list l-flex l-flex-column">
-                            <div class="item-wrapper  passed l-flex l-center-vr">
+                           
+                            <div class="item-wrapper   l-flex l-center-vr" data-step_id="1">
                                 <div class="icon"></div>
                                 <label class="item" > Software Licence Agreement </label>
                             </div>
 
-                            <div class="item-wrapper passed l-flex l-center-vr">
+                            <div class="item-wrapper  l-flex l-center-vr"data-step_id="2">
                                 <div class="icon"></div>
                                 <label class="item" > Software Licence Agreement </label>
                             </div>
 
-                            <div class="item-wrapper current l-flex l-center-vr">
+                            <div class="item-wrapper  l-flex l-center-vr"data-step_id="3">
                                 <div class="icon"></div>
                                 <label class="item" > Software Licence Agreement </label>
                             </div>
 
-
-                            <div class="item-wrapper l-flex l-center-vr">
+                            <div class="item-wrapper l-flex l-center-vr"data-step_id="4">
                                 <div class="icon"></div>
                                 <label class="item" > Software Licence Agreement </label>
                             </div>
 
-                            <div class="item-wrapper l-flex l-center-vr">
-                                <div class="icon"></div>
-                                <label class="item" > Software Licence Agreement </label>
-                            </div>
                                              
                         </div>
                     </div>
+                    <!-- :End Wizard Side progress indicator -->
+
+                    <!-- :Begin Wizard Main Content -->
                     <div class="content l-flex l-flex-column l-flex-space-btwn">
 
-                        <div class="main">
+                        <!-- :Begin Wizard step container -->
+                        <div class="steps">
+
+                            <div class="step" data-step_id="1">
+                                <h1> Step 1</h1>
+                            </div>
+
+                            <div class="step " data-step_id="2"> 
+                                <h1> Step 2</h1>
+                            </div>
+
+
+                            <div class="step " data-step_id="3"> 
+                                <h1> Step 3</h1>
+                            </div>
+
+                            <div class="step " data-step_id="4">
+                                <h1> Step 4</h1>
+                            </div>
 
                         </div>
+                        <!-- :End Wizard step container -->
 
+
+                        <!-- :Begin Wizard Nagivation -->
                         <div class="nav l-flex l-flex-row l-flex-space-btwn ">
                             <div>
-                                <button class="button cancel"> Cancell </button>
+                                <button class="button cancel" onclick="cancelWizard(event)"> Cancell </button>
                             </div>
 
                             <div class="l-flex l-flex-end">
-                                <button class="button previous"> Previous </button>
-                                <button class="button next"> Next </button>
+                                <button class="button previous hidden" onclick="previousStep(event)"> Previous </button>
+                                <button class="button next" onclick="nextStep(event)"> Next </button>
                             </div>
                            
 
                         </div>
+                        <!-- :End Wizard Nagivation -->
+
 
                     </div>
+                    <!-- :End Wizard Main Content -->
+
 
                     </div>
                 </div>

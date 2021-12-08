@@ -111,6 +111,21 @@
 
   & > .content {
     flex-grow: 1;
+    & > .steps{
+      flex-grow: 1;
+
+      & > .step{
+        display: none;
+        height: 100%;
+        width: 100%;
+      }
+
+      & > .step.current{
+        display: flex;
+      }
+
+
+    }
     & > .nav {
       .button {
         margin: 24px;
@@ -118,6 +133,10 @@
         border-radius: 24px;
         font-weight: bold;
         cursor: pointer;
+      }
+
+      .button.hidden{
+        visibility: hidden;
       }
     }
   }

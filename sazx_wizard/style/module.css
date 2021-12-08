@@ -68,12 +68,26 @@
 .sazx-wizard > .content {
   flex-grow: 1;
 }
+.sazx-wizard > .content > .steps {
+  flex-grow: 1;
+}
+.sazx-wizard > .content > .steps > .step {
+  display: none;
+  height: 100%;
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step.current {
+  display: flex;
+}
 .sazx-wizard > .content > .nav .button {
   margin: 24px;
   padding: 0.5rem 2rem;
   border-radius: 24px;
   font-weight: bold;
   cursor: pointer;
+}
+.sazx-wizard > .content > .nav .button.hidden {
+  visibility: hidden;
 }
 
 /*# sourceMappingURL=module.css.map */
