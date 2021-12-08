@@ -1,0 +1,39 @@
+body {
+  background-color: #0b59a0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+:root {
+  --sw-color-primary: #37a6ed;
+  --sw-color-secondary: #69cff7;
+  --sw-color-thershary: #daeef3;
+  --sw-color-neu-primary: #3e3d3e;
+  --sw-color-neg-primary: #ff00ba;
+  --sw-color-neg-thershary: #ffffff;
+}
+
+.sazx-wizard {
+  background-color: var(--sw-color-primary);
+}
+.sazx-wizard > .content {
+  background-color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .nav .button.next {
+  background: var(--sw-color-primary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .nav .button.previous {
+  background: transparent;
+  color: var(--sw-color-neu-primary);
+  border: solid 1px var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .nav .button.cancel {
+  background: var(--sw-color-neg-primary);
+  color: var(--sw-color-neg-thershary);
+}
+
+/*# sourceMappingURL=theme.css.map */

@@ -1,0 +1,137 @@
+/* Make element dispay inline */
+.l-inline{
+    display: inline;
+}
+
+/* Make the display flex */
+.l-flex{
+    display: flex;
+}
+
+    /* Flex flow-direction, colum */
+
+    .l-flex-column{
+        flex-flow: column;
+    }
+
+    .l-flex-row{
+        flex-flow: row;
+    }
+
+
+
+    /* Center Horizontaly for flex-flow is row */
+    .l-center-hr{
+        justify-content: center;
+    }
+
+    /* Center Horizontaly for flex-flow is column */
+    .l-center-hc{
+        align-items: center;
+    }
+
+
+    /* Center Verically for flex-flow is row */
+    .l-center-vr{
+        align-items: center;
+    }
+
+    /* Center Verically for flex-flow is column */
+    .l-center-vc{
+        justify-content: center;
+    }
+
+    /*Make flex item wrap*/
+    .l-flex-wrap{
+        flex-wrap: wrap;
+    }
+
+
+    .l-flex-space-btwn{
+        justify-content: space-between;
+    }
+
+    .l-flex-space-evenly{
+        justify-content: space-between;
+    }
+
+    
+    .l-flex-end{
+        justify-content: flex-end;
+    }
+    
+        /*For align-items*/
+
+    .l-flex-ai-end{
+        align-items: flex-end;
+    }
+
+/* Center Horizontally Non FLex item */
+.l-center{
+    margin: auto;
+}
+
+
+    .l-half{
+        width: 50%;
+    }
+
+    .text-no-wrap{
+        white-space: nowrap;
+    }
+
+/* Margin Values */
+
+
+
+
+
+
+
+.text-xxs{
+    font-size: 0.7rem;
+}
+
+.text-xs{
+    font-size: 0.7rem;
+}
+
+.text-s{
+    font-size: 1rem;
+}
+
+.text-m{
+    font-size: 1.5rem;
+}
+
+.text-l{
+    font-size: 2rem;
+}
+
+.text-xl{
+    font-size: 2.5rem;
+}
+
+.text-xxl{
+    font-size: 3rem;
+}
+
+
+.text-bold{
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+/*
+
+*/
+
+
+main{
+    margin-top: 1rem;
+}

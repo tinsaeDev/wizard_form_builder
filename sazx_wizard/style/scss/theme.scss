@@ -1,0 +1,59 @@
+body {
+  background-color: #0b59a0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+:root {
+  --sw-color-primary: #37a6ed;
+  --sw-color-secondary: #69cff7;
+  --sw-color-thershary: #daeef3;
+
+  //   Neutral colors
+
+  --sw-color-neu-primary: #3e3d3e;
+//   --sw-color-neu-secondary: #928893;
+//   --sw-color-neu-thershary: #928893;
+
+  //   Negetive colors
+
+  --sw-color-neg-primary: #ff00ba;
+//   --sw-color-neg-secondary: rgb(248, 206, 247);
+  --sw-color-neg-thershary: #ffffff;
+
+
+}
+
+.sazx-wizard {
+  background-color: var(--sw-color-primary);
+
+  & > .nav {
+    & > .list {
+      & > .item {
+      }
+    }
+  }
+
+  & > .content {
+    background-color: var(--sw-color-thershary);
+
+    & > .nav {
+      .button.next {
+        background: var(--sw-color-primary);
+        color: var(--sw-color-thershary);
+      }
+
+      .button.previous {
+        background: transparent;
+        color: var(--sw-color-neu-primary);
+        border: solid 1px var(--sw-color-neu-primary);
+      }
+      .button.cancel {
+        background: var(--sw-color-neg-primary);
+        color: var(--sw-color-neg-thershary);
+      }
+    }
+  }
+}

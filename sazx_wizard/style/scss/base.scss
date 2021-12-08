@@ -1,0 +1,82 @@
+/*	0. CSS Reset
+/* -------------------------------------------------------------------------- */
+
+
+html,
+body {
+	border: none;
+	margin: 0;
+	padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+address,
+big,
+cite,
+code,
+em,
+font,
+img,
+small,
+strike,
+sub,
+sup,
+li,
+ol,
+ul,
+fieldset,
+form,
+label,
+legend,
+button,
+table,
+caption,
+tr,
+th,
+td {
+	border: none;
+	font-size: inherit;
+	line-height: inherit;
+	margin: 0;
+	padding: 0;
+    text-align: inherit;
+    
+}
+
+blockquote::before,
+blockquote::after {
+	content: "";
+}
+
+
+a{
+	text-decoration: none;
+	color: unset;
+}
+
+button, input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+}
+
+/*
+    CSS Reset ended
+*/
+
+
+body,html{
+	height: 100%;
+	font-size: 16px;
+
+	font-family: "Advent Pro",Lato,-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+*{
+	outline: none;
+}
