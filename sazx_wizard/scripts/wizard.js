@@ -141,6 +141,20 @@ function navigateStep(direction) {
     nextStepIndicator.classList.add("current");
 
 
+
+    /**
+     * Updated the completed steps indicator
+     */
+
+    let activatedStepIndex =  Number.parseInt(nextStepId)  - 1;
+    for( let i = 0; i< activatedStepIndex ; i++ ){
+        progressesDOM[ i ].classList.add( "passed" );
+    }
+    for( let i = activatedStepIndex; i< progressesDOM.length - 1 ; i++ ){
+        progressesDOM[ i ].classList.remove( "passed" );
+    }
+
+
     /**
      * Return the Id of the activated step
      */
@@ -186,20 +200,38 @@ function cancelWizard(event) {
 }
 
 
+const wizardConfig = {
+    title : "Here goes the wizard title",
+    steps : [
+        {
+            label : "Installation",
+            inputs : [
+                {
+                    "title":"What do you want to Model"
+                }
+            ]
+        }
+    ]
+}
+
+
+console.log( new Date() );
 
 /**
  * Run this script on the page load
  */
 (function () {
 
+    debugger;
+
     if (document.readyState === "complete") {
         /**
          * If the page has alread loaded, directly call the builder function
          */
-        build("", "#wizwiz");
+        build(wizardConfig, "#wizwiz");
     } else {
         window.addEventListener("load", function (event) {
-            build("", "#wizwiz");
+            build(wizardConfig, "#wizwiz");
         });
     }
 })();
