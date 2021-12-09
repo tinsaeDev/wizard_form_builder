@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="sazx_wizard/scripts/wizard.js"></script>
     <script src="sazx_wizard/scripts/builder.js"></script>
+    <script src="sazx_wizard/scripts/runtime.js"></script>
 
     <link href="sazx_wizard/style/base.css" rel="stylesheet">
     <link href="sazx_wizard/style/layout.css" rel="stylesheet">
@@ -68,6 +69,8 @@
                             <div class="steps">
 
                                 <div class="step l-flex l-flex-column" data-step_id="1">
+                                    
+                                    <!-- :Begin Radio Button Question   -->
                                     <div class="form">
                                         <h1 class="title"> What do you want to Model? </h1>
                                         <div class="fields radio ">
@@ -93,41 +96,62 @@
 
                                         </div>
                                     </div>
+                                    <!-- :End Radio Button Question   -->
 
 
+                                    <!-- :Begin Free Text Question   -->
                                     <div class="form">
                                         <h1 class="title"> You are free to edit </h1>
                                         <div class="fields text ">
 
                                             <div class="text-inputs">
-
-
+                                               
                                                 <div class="text-input l-flex l-flex-column">
                                                     <label class="label" for="bb"> Large claims </label>
                                                     <input class="input" id="bb" name="bb" type="text" />
                                                 </div>
 
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- :End Free Text Question   -->
+
+
+                                    <!-- :Begin FIle/Url import Question   -->
+                                    <div class="form">
+                                        <h1 class="title"> Import the CSV </h1>
+                                        <div class="fields file-url l-flex l-flex-column">
+
+                                            <div class="tab-view l-flex l-flex-column">
+                                                <div class="header l-flex l-flex-row">
+                                                    <button for="file" onclick="tabClick(event)" class="button active"> From File </button>
+                                                    <button for="url" onclick="tabClick(event)" class="button "> From URL </button>
+                                                </div>
+                                                <div class="body">
+                                                    <div id="file" class="tab active">
+                                                        <div class="file-input l-flex l-flex-column l-center-vr l-center-hr">
+                                                            <button onclick="fileChooserClicked(event)" class="button"> CHoose File </button>
+                                                            <input class="input" accept="text/csv" onchange="fileChooserChanged(event)" type="file" name="placeholder">
+                                                            <p class="file-name" > dsfjskfjsdjk,  </p>
+                                                        </div>
+                                                    </div>
+                                                    <div id="url" class="tab ">
+                                                        <div class="url-input l-flex l-flex-column">
+                                                            <label class="label" for="bb"> CSV File URL </label>
+                                                            <input class="input" id="bb" name="bb" type="url" />
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                             </div>
 
                                         </div>
                                     </div>
+                                    <!-- :End FIle/Url import Question   -->
 
 
-                                </div>
-
-                                <div class="step " data-step_id="2">
-                                    <h1> Step 2</h1>
-                                </div>
-
-
-                                <div class="step " data-step_id="3">
-                                    <h1> Step 3</h1>
-                                </div>
-
-                                <div class="step " data-step_id="4">
-                                    <h1> Step 4</h1>
-                                </div>
+                                </div>        
 
                             </div>
                             <!-- :End Wizard step container -->

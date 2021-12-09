@@ -80,7 +80,7 @@
 }
 .sazx-wizard > .content > .steps > .step > .form {
   width: 100%;
-  border: solid;
+  border: solid 1px var(--sw-color-primary);
   padding: 1rem;
   box-sizing: border-box;
   margin-bottom: 1rem;
@@ -113,6 +113,51 @@
 }
 .sazx-wizard > .content > .steps > .step > .form > .fields.text > .text-inputs > .text-input > .input {
   height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view {
+  width: 100%;
+  border: solid;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .header {
+  background: var(--sw-color-neu-secondary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .header .button {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-neu-secondary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .header .button.active {
+  background: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab {
+  display: none;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .file-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .file-input .button {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-neu-secondary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .file-input .input {
+  display: none;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .url-input {
+  width: 100%;
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .url-input .input {
+  height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab.active {
+  display: flex;
 }
 .sazx-wizard > .content > .steps > .step.current {
   display: flex;
