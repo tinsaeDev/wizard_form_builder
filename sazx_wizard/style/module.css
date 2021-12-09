@@ -70,11 +70,49 @@
 }
 .sazx-wizard > .content > .steps {
   flex-grow: 1;
+  padding: 3rem;
 }
 .sazx-wizard > .content > .steps > .step {
   display: none;
   height: 100%;
   width: 100%;
+  overflow: auto;
+}
+.sazx-wizard > .content > .steps > .step > .form {
+  width: 100%;
+  border: solid;
+  padding: 1rem;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.radio > .radio-group > .radio-button > .input {
+  display: none;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.radio > .radio-group > .radio-button > .input:checked + .label {
+  background: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.radio > .radio-group > .radio-button > .label {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-neu-secondary);
+  color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.text > .text-inputs > .text-input {
+  margin-bottom: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.text > .text-inputs > .text-input > .label {
+  font-size: larger;
+  margin-bottom: 3px;
+  font-weight: 400;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.text > .text-inputs > .text-input > .input {
+  height: 2rem;
 }
 .sazx-wizard > .content > .steps > .step.current {
   display: flex;

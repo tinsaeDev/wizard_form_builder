@@ -39,33 +39,8 @@ let prevButton;
 let cancelButton;
 
 
-
-/**
- * 
- * @param { Object } config The JSON used to construct the wizard
- * @param { String } rootDom  The Id of the div in which the prepared wizard is injected to
- */
-let build = function (config, rootDomId) {
-
-
-    rootElement = document.querySelector(rootDomId);
-    console.log(rootElement);
-
-    console.log("Building Wizard");
-    initWizard();
-}
-
-
-
 function initWizard() {
 
-
-    /**
-     * Sve the reffernces of  all the steps and  progress indicators 
-     */
-
-    stepsDOM = rootElement.querySelectorAll(".content .steps .step");
-    progressesDOM = rootElement.querySelectorAll(".nav .list .item-wrapper");
 
 
     /**
@@ -81,8 +56,8 @@ function initWizard() {
      * 
      */
 
-    stepsDOM[0].classList.add("current");
-    progressesDOM[0].classList.add("current");
+    stepsDOM.firstElementChild.classList.add("current");
+    progressesDOM.firstElementChild.classList.add("current");
 
 
     // let firstStep = 
@@ -98,19 +73,8 @@ function navigateStep(direction) {
     /**
         * Hide current step and update the progess 
         */
-
-    let activeStep = Array.from(stepsDOM).find(step => {
-        if (step.classList.contains("current")) {
-            return true;
-        }
-    });
-
-    let activeStepProgressIndicator = Array.from(progressesDOM).find(indicator => {
-        if (indicator.dataset.step_id === activeStep.dataset.step_id) {
-            return true;
-        }
-    });
-
+     let activeStep = stepsDOM.querySelector(".current");
+     let activeStepProgressIndicator = progressesDOM.querySelector('[data-step_id^="'+activeStep.dataset.step_id+'"]');        
 
     activeStep.classList.remove("current");
     activeStepProgressIndicator.classList.remove("current");
@@ -121,20 +85,10 @@ function navigateStep(direction) {
      */
 
     let activeStepId = Number.parseInt(activeStep.dataset.step_id);
-    let nextStepId = direction==="FORWARD" ? "" + ( activeStepId + 1) : "" + ( activeStepId - 1) ;
+    let nextStepId = direction === "FORWARD" ? "" + (activeStepId + 1) : "" + (activeStepId - 1);
 
-    let nextStep = Array.from(stepsDOM).find(step => {
-        if (step.dataset.step_id === nextStepId) {
-            return true;
-        }
-    });
-
-    let nextStepIndicator = Array.from(progressesDOM).find(indicator => {
-
-        if (indicator.dataset.step_id === nextStepId) {
-            return true;
-        }
-    });
+    let nextStep = stepsDOM.querySelector('[data-step_id^="'+nextStepId+'"]');        
+    let nextStepIndicator = progressesDOM.querySelector('[data-step_id^="'+nextStepId+'"]');        
 
 
     nextStep.classList.add("current");
@@ -146,12 +100,13 @@ function navigateStep(direction) {
      * Updated the completed steps indicator
      */
 
-    let activatedStepIndex =  Number.parseInt(nextStepId)  - 1;
-    for( let i = 0; i< activatedStepIndex ; i++ ){
-        progressesDOM[ i ].classList.add( "passed" );
+    let activatedStepIndex = Number.parseInt(nextStepId) - 1;
+    let indicators = progressesDOM.querySelectorAll(".item-wrapper");
+    for (let i = 0; i < activatedStepIndex; i++) {
+        indicators[i].classList.add("passed");
     }
-    for( let i = activatedStepIndex; i< progressesDOM.length - 1 ; i++ ){
-        progressesDOM[ i ].classList.remove( "passed" );
+    for (let i = activatedStepIndex; i < progressesDOM.length - 1; i++) {
+        indicators[i].classList.remove("passed");
     }
 
 
@@ -167,7 +122,7 @@ function nextStep(event) {
      * Disable next step button if reached the last step
      */
 
-    if (stepsDOM.length ===  Number.parseInt( stepID ) ) {
+    if (stepsDOM.length === Number.parseInt(stepID)) {
         event.target.classList.add("hidden");
     }
 
@@ -183,7 +138,7 @@ function previousStep(event) {
      * Disable the previous  step button if reached the first step
      */
 
-    if ( 1 ===  Number.parseInt( stepID ) ) {
+    if (1 === Number.parseInt(stepID)) {
         event.target.classList.add("hidden");
     }
 
@@ -201,28 +156,51 @@ function cancelWizard(event) {
 
 
 const wizardConfig = {
-    title : "Here goes the wizard title",
-    steps : [
+    title: "Here goes the wizard title",
+    steps: [
+
         {
-            label : "Installation",
-            inputs : [
+
+            label: "Step 1 Label",
+            questions: [
+
                 {
-                    "title":"What do you want to Model"
+                    type: "radio",
+                    name: "model",
+                    description: "What do you want to Model?",
+                    options: [
+                        {
+                            value: "f",
+                            title: "Frequency",
+                        },
+
+                        {
+                            value: "s",
+                            title: "Severity",
+                        },
+
+                        {
+                            value: "d",
+                            title: "Demand",
+                        }
+                    ]
+
                 }
             ]
+
+
         }
+
     ]
 }
 
 
-console.log( new Date() );
+console.log(new Date());
 
 /**
  * Run this script on the page load
  */
 (function () {
-
-    debugger;
 
     if (document.readyState === "complete") {
         /**

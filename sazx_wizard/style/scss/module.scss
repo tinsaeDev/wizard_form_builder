@@ -77,7 +77,6 @@
             Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
         }
       }
-      
 
       // Tick Symbol for passed wizard steps
       .item-wrapper.passed {
@@ -90,7 +89,7 @@
 
       // Tick Symbol for passed wizard steps
       .item-wrapper.current {
-        font-weight: bolder ;
+        font-weight: bolder;
         .icon {
           &:before {
             content: "•";
@@ -111,20 +110,79 @@
 
   & > .content {
     flex-grow: 1;
-    & > .steps{
+    & > .steps {
       flex-grow: 1;
+      padding: 3rem;
 
-      & > .step{
+      & > .step {
         display: none;
         height: 100%;
         width: 100%;
+        overflow: auto;
+
+        & > .form {
+          width: 100%;
+          border: solid;
+          padding: 1rem;
+          box-sizing: border-box;
+          margin-bottom: 1rem;
+
+          & > .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+          }
+
+          & > .fields {
+          }
+
+          & > .fields.radio {
+            & > .radio-group {
+              & > .radio-button {
+                & > .input {
+                  display: none;
+                  &:checked + .label{
+                    background:var( --sw-color-primary );
+                    color: var( --sw-color-neu-primary );
+
+                  }
+                  
+                }
+
+                & > .label{
+                  padding: 0.5rem 2rem;
+                  font-weight: bold;
+                  cursor: pointer;
+                  background: var(--sw-color-neu-secondary);
+                  color: var(--sw-color-thershary);
+                                }
+              }
+            }
+
+          }
+
+          & > .fields.text {
+            & > .text-inputs {
+              & > .text-input {
+                margin-bottom: 1rem;
+
+                & > .label {
+                  font-size: larger;
+                  margin-bottom: 3px;
+                  font-weight: 400;
+                }
+
+                & > .input {
+                  height: 2rem;
+                }
+              }
+            }
+          }
+        }
       }
 
-      & > .step.current{
+      & > .step.current {
         display: flex;
       }
-
-
     }
     & > .nav {
       .button {
@@ -135,7 +193,7 @@
         cursor: pointer;
       }
 
-      .button.hidden{
+      .button.hidden {
         visibility: hidden;
       }
     }
