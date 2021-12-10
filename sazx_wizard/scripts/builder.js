@@ -13,6 +13,7 @@ let stepTemplate;
  */
 let radioButtomFormTemplate;
 let freeTextFormTemplate;
+let fileUrlFormTemplate;
 
 
 /**
@@ -38,7 +39,7 @@ let build = function (config, rootDomId) {
 
     radioButtomFormTemplate = document.querySelector("#sazx_wizard_template_radio_button");
     freeTextFormTemplate = document.querySelector("#sazx_wizard_template_free_text");
-
+    fileUrlFormTemplate = document.querySelector("#sazx_wizard_template_file_url");
     /**
      * Save the reffernces of  all the steps parent and  progress indicators parent 
      */
@@ -96,6 +97,10 @@ function buildStep(stepConfig, index) {
                 break;
             }
 
+            case "file" :{
+                step.append( buildFileUrlQuestion( question ) );
+                break;
+            }
             default: {
                 console.error(question.type, " is not a supported question type");
             }
@@ -181,22 +186,22 @@ function buildFreeTextQuestion(questionConfig) {
 
     let fields = questionDOM.querySelector(".fields");
     let sazxFreeInputs = fields.querySelector(".text-inputs");
-    let sazxFreeInputTemplate  = sazxFreeInputs.querySelector(".text-input-template");
+    let sazxFreeInputTemplate = sazxFreeInputs.querySelector(".text-input-template");
 
-    questionConfig.inputs.forEach( input=>{
+    questionConfig.inputs.forEach(input => {
         let sazxFreeInput = sazxFreeInputTemplate.content.firstElementChild.cloneNode(true);
         let textLabel = sazxFreeInput.querySelector(".label");
-            textLabel.setAttribute("for", `sazx-${questionConfig.name}-${input.name}` );
-            textLabel.innerText = input.label;
+        textLabel.setAttribute("for", `sazx-${questionConfig.name}-${input.name}`);
+        textLabel.innerText = input.label;
 
-        let textInput =  sazxFreeInput.querySelector(".input");
-            textInput.setAttribute("name", input.name );
-            textInput.setAttribute("id", `sazx-${questionConfig.name}-${input.name}` );
+        let textInput = sazxFreeInput.querySelector(".input");
+        textInput.setAttribute("name", input.name);
+        textInput.setAttribute("id", `sazx-${questionConfig.name}-${input.name}`);
 
 
-        sazxFreeInputs.append(  sazxFreeInput );
+        sazxFreeInputs.append(sazxFreeInput);
 
-    } );
+    });
 
 
 
@@ -206,4 +211,24 @@ function buildFreeTextQuestion(questionConfig) {
 
 
     return questionDOM;
+}
+
+// file upload/url builder
+
+function buildFileUrlQuestion(questionConfig) {
+    let questionDOM = fileUrlFormTemplate.content.firstElementChild.cloneNode(true);
+    
+    let title= questionDOM.querySelector(".title");
+        title.innerText = questionConfig.description;
+
+    let fileInput =   questionDOM.querySelector(".file-input .input");
+        fileInput.setAttribute( "name" , questionConfig.name); 
+        
+        /**
+         * FIle Url not implemented yet
+         */
+    
+    
+    return questionDOM;
+
 }

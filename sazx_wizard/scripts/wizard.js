@@ -73,8 +73,8 @@ function navigateStep(direction) {
     /**
         * Hide current step and update the progess 
         */
-     let activeStep = stepsDOM.querySelector(".current");
-     let activeStepProgressIndicator = progressesDOM.querySelector('[data-step_id^="'+activeStep.dataset.step_id+'"]');        
+    let activeStep = stepsDOM.querySelector(".current");
+    let activeStepProgressIndicator = progressesDOM.querySelector('[data-step_id^="' + activeStep.dataset.step_id + '"]');
 
     activeStep.classList.remove("current");
     activeStepProgressIndicator.classList.remove("current");
@@ -87,8 +87,8 @@ function navigateStep(direction) {
     let activeStepId = Number.parseInt(activeStep.dataset.step_id);
     let nextStepId = direction === "FORWARD" ? "" + (activeStepId + 1) : "" + (activeStepId - 1);
 
-    let nextStep = stepsDOM.querySelector('[data-step_id^="'+nextStepId+'"]');        
-    let nextStepIndicator = progressesDOM.querySelector('[data-step_id^="'+nextStepId+'"]');        
+    let nextStep = stepsDOM.querySelector('[data-step_id^="' + nextStepId + '"]');
+    let nextStepIndicator = progressesDOM.querySelector('[data-step_id^="' + nextStepId + '"]');
 
 
     nextStep.classList.add("current");
@@ -122,9 +122,8 @@ function nextStep(event) {
      * Disable next step button if reached the last step
      */
 
-    debugger;
 
-    if ( stepsDOM.childElementCount - 1 === Number.parseInt(stepID)) {
+    if (stepsDOM.childElementCount - 1 === Number.parseInt(stepID)) {
         event.target.classList.add("hidden");
     }
 
@@ -165,48 +164,16 @@ const wizardConfig = {
             label: "File / URL Inputs",
             questions: [
                 {
-                    type: "radio",
-                    name: "model",
-                    description: "Mockup web site - wizard?",
-                    options: [
-                        {
-                            value: "f",
-                            title: "Frequency",
-                        },
-
-                        {
-                            value: "s",
-                            title: "Severity",
-                        },
-
-                        {
-                            value: "d",
-                            title: "Demand",
-                        }
-                    ]
+                    type: "file",
+                    name: "file1",
+                    description: "Getachew Reda's interview"                  
 
                 },
 
                 {
-                    type: "radio",
-                    name: "model3",
-                    description: "Mockup web site - wizard?",
-                    options: [
-                        {
-                            value: "f",
-                            title: "Frequency",
-                        },
-
-                        {
-                            value: "s",
-                            title: "Severity",
-                        },
-
-                        {
-                            value: "d",
-                            title: "Demand",
-                        }
-                    ]
+                    type: "file",
+                    name: "file2",
+                    description: "TDF convoys along A-2 highway"                  
 
                 }
             ]
@@ -276,7 +243,7 @@ const wizardConfig = {
                     type: "text",
                     name: "model2",
                     description: "No transactions meet your selected criteria?",
-                    inputs : [
+                    inputs: [
                         {
                             name: "f",
                             label: "Frequency",
@@ -301,6 +268,9 @@ const wizardConfig = {
 
     ]
 }
+
+
+console.log(new Date());
 
 /**
  * Run this script on the page load
