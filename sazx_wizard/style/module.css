@@ -86,7 +86,7 @@
   margin-bottom: 1rem;
 }
 .sazx-wizard > .content > .steps > .step > .form > .title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   margin-bottom: 1rem;
 }
 .sazx-wizard > .content > .steps > .step > .form > .fields.radio > .radio-group > .radio-button > .input {
@@ -158,6 +158,32 @@
 }
 .sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab.active {
   display: flex;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table {
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > thead {
+  height: 2.5rem;
+  background-color: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > thead > tr > th {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr {
+  height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr:nth-child(even) {
+  background-color: var(--sw-color-secondary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr:nth-child(odd) {
+  background-color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr > td {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr > td > select {
+  width: 100%;
 }
 .sazx-wizard > .content > .steps > .step.current {
   display: flex;

@@ -5,8 +5,13 @@
  * Template refferences
  */
 
-let stepTemplate;
 let stepProgressIdicatorTemplate;
+
+let stepTemplate;
+/**
+ * Question templates
+ */
+let radioButtomFormTemplate;
 
 
 /**
@@ -17,8 +22,6 @@ let stepProgressIdicatorTemplate;
 let build = function (config, rootDomId) {
 
 
-
-
     /**
      * The root element to wich the wizard is inserted to
      */
@@ -26,12 +29,13 @@ let build = function (config, rootDomId) {
 
 
     /**
-     * Get the template 
+     * Get the template  for 
      */
      stepTemplate = document.querySelector("#sazx-wiz-step-wrapper-template");
      stepProgressIdicatorTemplate = document.querySelector("#sazx-wiz-step-indicator-wrapper-template");
 
 
+     radioButtomFormTemplate = document.querySelector("#sazx_wizard_template_radio_button");
 
 
     /**
@@ -73,11 +77,24 @@ function buildStep(stepConfig, index) {
 
 
     let step = stepTemplate.content.firstElementChild.cloneNode( true );
-    // Build Questions
-
-    
 
     step.dataset.step_id = index;
+
+    // Build Questions
+
+    stepConfig.questions.forEach( question=>{
+
+        switch( question.type ){
+            case "radio" :{
+                step.append(   buildRadioQuestion( question ) );
+                break;
+            }
+        }
+
+    } );
+
+
+
 
     return step ;
 
@@ -99,20 +116,49 @@ function buildProgressIndicator(stepConfig,index) {
 
 }
 
+/**
+ * Question Builders
+ */
+
+// Radio Button Builder
+function buildRadioQuestion( questionConfig ) {
+
+    let questionDOM = radioButtomFormTemplate.content.firstElementChild.cloneNode(true);
+    
+    /**
+     * Set the question description/title
+     */
+    let title =     questionDOM.querySelector(".title");
+    title.innerText = questionConfig.description;
+
+    let radioFields = questionDOM.querySelector(".fields");
+    let radioGroup = radioFields.querySelector(".radio-group");
+    let radioButtonTemplate = radioGroup.querySelector(".radio-button-template");
+
+    /**
+     * Build the custom buttons
+     */
+    questionConfig.options.forEach( option=>{
+
+        let sazxRadioButton = radioButtonTemplate.content.firstElementChild.cloneNode(true);
+        let label = sazxRadioButton.querySelector(".label");
+        let input = sazxRadioButton.querySelector(".input");
+
+            input.setAttribute("name", questionConfig.name );
+            input.setAttribute("id", `sazx-${questionConfig.name}-${option.value}`  );           
+            input.setAttribute("value", option.value );
+            
+            label.setAttribute("for", `sazx-${questionConfig.name}-${option.value}` )
+            label.innerText =  option.title;
+
+        radioGroup.append( sazxRadioButton );
+    } );
 
 
-function buildQuestions(){}
+    radioFields.append( radioGroup );
+    questionDOM.append( radioFields );
+    return questionDOM;
 
-// switch (step.type) {
-
-
-//     case "radio": {
-//         buildRadioStep
-//         break;
-//     }
+}
 
 
-//     default: {
-//         console.warn(step.type, "is not implemented yet");
-//     }
-// }

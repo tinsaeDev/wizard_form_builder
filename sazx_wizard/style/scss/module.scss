@@ -128,7 +128,7 @@
           margin-bottom: 1rem;
 
           & > .title {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             margin-bottom: 1rem;
           }
 
@@ -216,13 +216,12 @@
                     }
                   }
 
-                  .url-input{
+                  .url-input {
                     width: 100%;
                     padding: 0.5rem;
-                    .label{
-
+                    .label {
                     }
-                    .input{
+                    .input {
                       height: 2rem;
                     }
                   }
@@ -230,6 +229,48 @@
                 .tab.active {
                   display: flex;
                 }
+              }
+            }
+          }
+
+          & > .fields.column-mapper {
+            & > table {
+              width: 100%;
+              & > thead {
+
+                height: 2.5rem;
+                background-color: var(--sw-color-primary);
+                color: var(--sw-color-neu-primary);
+
+                & > tr {
+                  & > th{
+                    padding: 0.5rem;
+                  }
+                }
+              }
+
+              & > tbody {
+                & > tr {
+                  height: 2rem;
+
+                  &:nth-child(even) {
+                    background-color: var(--sw-color-secondary);
+                  }
+                  &:nth-child(odd) {
+                    background-color: var(--sw-color-thershary);
+                  }
+
+
+                  & > td {
+
+                    padding: 0.5rem;
+                    & > select  {
+                      width: 100%;
+                    }
+                   
+                  }
+                }
+
               }
             }
           }

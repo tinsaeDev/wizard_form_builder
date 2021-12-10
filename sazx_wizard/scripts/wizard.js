@@ -163,11 +163,10 @@ const wizardConfig = {
 
             label: "Step 1 Label",
             questions: [
-
                 {
                     type: "radio",
                     name: "model",
-                    description: "What do you want to Model?",
+                    description: "Mockup web site - wizard?",
                     options: [
                         {
                             value: "f",

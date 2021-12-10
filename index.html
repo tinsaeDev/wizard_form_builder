@@ -37,27 +37,6 @@
 
                             <div class="list l-flex l-flex-column">
 
-                                <div class="item-wrapper   l-flex l-center-vr" data-step_id="1">
-                                    <div class="icon"></div>
-                                    <label class="item"> Software Licence Agreement </label>
-                                </div>
-
-                                <div class="item-wrapper  l-flex l-center-vr" data-step_id="2">
-                                    <div class="icon"></div>
-                                    <label class="item"> Software Licence Agreement </label>
-                                </div>
-
-                                <div class="item-wrapper  l-flex l-center-vr" data-step_id="3">
-                                    <div class="icon"></div>
-                                    <label class="item"> Software Licence Agreement </label>
-                                </div>
-
-                                <div class="item-wrapper l-flex l-center-vr" data-step_id="4">
-                                    <div class="icon"></div>
-                                    <label class="item"> Software Licence Agreement </label>
-                                </div>
-
-
                             </div>
                         </div>
                         <!-- :End Wizard Side progress indicator -->
@@ -67,97 +46,13 @@
 
                             <!-- :Begin Wizard step container -->
                             <div class="steps">
-
-                                <div class="step l-flex l-flex-column" data-step_id="1">
-                                    
-                                    <!-- :Begin Radio Button Question   -->
-                                    <div class="form">
-                                        <h1 class="title"> What do you want to Model? </h1>
-                                        <div class="fields radio ">
-
-                                            <div class="radio-group l-flex l-center-hr l-center-vr">
-
-                                                <div class="radio-button">
-                                                    <input class="input" name="aa" id="a1" type="radio">
-                                                    <label class="label" for="a1"> One </label>
-                                                </div>
-
-                                                <div class="radio-button">
-                                                    <input class="input" name="aa" id="a2" type="radio">
-                                                    <label class="label" for="a2"> One </label>
-                                                </div>
-
-                                                <div class="radio-button">
-                                                    <input class="input" name="aa" id="a3" type="radio">
-                                                    <label class="label" for="a3"> One </label>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- :End Radio Button Question   -->
-
-
-                                    <!-- :Begin Free Text Question   -->
-                                    <div class="form">
-                                        <h1 class="title"> You are free to edit </h1>
-                                        <div class="fields text ">
-
-                                            <div class="text-inputs">
-                                               
-                                                <div class="text-input l-flex l-flex-column">
-                                                    <label class="label" for="bb"> Large claims </label>
-                                                    <input class="input" id="bb" name="bb" type="text" />
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- :End Free Text Question   -->
-
-
-                                    <!-- :Begin FIle/Url import Question   -->
-                                    <div class="form">
-                                        <h1 class="title"> Import the CSV </h1>
-                                        <div class="fields file-url l-flex l-flex-column">
-
-                                            <div class="tab-view l-flex l-flex-column">
-                                                <div class="header l-flex l-flex-row">
-                                                    <button for="file" onclick="tabClick(event)" class="button active"> From File </button>
-                                                    <button for="url" onclick="tabClick(event)" class="button "> From URL </button>
-                                                </div>
-                                                <div class="body">
-                                                    <div id="file" class="tab active">
-                                                        <div class="file-input l-flex l-flex-column l-center-vr l-center-hr">
-                                                            <button onclick="fileChooserClicked(event)" class="button"> CHoose File </button>
-                                                            <input class="input" accept="text/csv" onchange="fileChooserChanged(event)" type="file" name="placeholder">
-                                                            <p class="file-name" > dsfjskfjsdjk,  </p>
-                                                        </div>
-                                                    </div>
-                                                    <div id="url" class="tab ">
-                                                        <div class="url-input l-flex l-flex-column">
-                                                            <label class="label" for="bb"> CSV File URL </label>
-                                                            <input class="input" id="bb" name="bb" type="url" />
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <!-- :End FIle/Url import Question   -->
-
-
-                                </div>        
+                            
 
                             </div>
                             <!-- :End Wizard step container -->
 
 
-                            <!-- :Begin Wizard Nagivation -->
+                            <!-- :Begin Wizard  Steps  Nagivation -->
                             <div class="nav l-flex l-flex-row l-flex-space-btwn ">
                                 <div>
                                     <button class="button cancel" onclick="cancelWizard(event)"> Cancell </button>
@@ -171,7 +66,7 @@
 
 
                             </div>
-                            <!-- :End Wizard Nagivation -->
+                            <!-- :End Wizard  Steps  Nagivation -->
 
 
                         </div>
@@ -196,8 +91,8 @@
 
     <!-- :Begin step template -->
     <template id="sazx-wiz-step-wrapper-template">
-        <div class="step " data-step_id="3">
-            <h1> Step 3</h1>
+        <div class="step l-flex l-flex-column" data-step_id="1">
+
         </div>
     </template>
     <!-- :End step template -->
@@ -206,19 +101,174 @@
     <template id="sazx-wiz-step-indicator-wrapper-template">
         <div class="item-wrapper   l-flex l-center-vr" data-step_id="1">
             <div class="icon"></div>
-            <label class="indicator-label item"> Software Licence Agreement </label>
+            <label class="indicator-label item"></label>
         </div>
     </template>
     <!-- :End progress indicator template -->
+   
+    <!-- 
 
+        ### FOrm
 
-    <!-- Template for radio buttons question -->
-    <template id="sazx_wizard_template_rbutton">
-        <div>
-            <h1> What do you want to Model? </h1>
+     -->
+    <!-- :Begin Column Mapper Template -->
+    <template id="sazx_wizard_template_column-mapper">
+        <!-- :Begin Column Mapper Form   -->
+        <div class="form">
+            <h1 class="title"> Map Collumns? </h1>
+            <div class="fields column-mapper ">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> File Column </th>
+                            <th> Map tO </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select>
+                                    <option> One </option>
+                                    <option> Two </option>
+                                    <option> THre </option>
+                                </select>
+                            </td>
+                            <td>
+                                <p> My Cell Name </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <select>
+                                    <option> One </option>
+                                    <option> Two </option>
+                                    <option> THre </option>
+                                </select>
+                            </td>
+                            <td>
+                                <p> My Cell Name </p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <select>
+                                    <option> One </option>
+                                    <option> Two </option>
+                                    <option> THre </option>
+                                </select>
+                            </td>
+                            <td>
+                                <p> My Cell Name </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
+        <!-- :End Column Mapper Form   -->
+    </template>
+    <!-- :Begin Column Mapper Template -->
+
+    <!-- :Begin Radio Button Template -->
+    <template id="sazx_wizard_template_radio_button">
+
+        <!-- :Begin Radio Button Question   -->
+        <div class="form">
+            <h1 class="title"> What do you want to Model? </h1>
+            <div class="fields radio ">
+
+                <div class="radio-group l-flex l-center-hr l-center-vr">
+
+                    <template class="radio-button-template">
+                        <div class="radio-button">
+                            <input class="input" name="aa" id="a1" type="radio">
+                            <label class="label" for="a1"> One </label>
+                        </div>
+                    </template>
+
+
+    
+
+                </div>
+
+            </div>
+        </div>
+        <!-- :End Radio Button Question   -->
+
 
     </template>
+    <!-- :End Radio Button Template -->
+
+    <!-- :Begin Free Text Template -->
+    <template id="sazx_wizard_template_free_text">
+        <!-- :Begin Free Text-->
+        <div class="form">
+            <h1 class="title"> You are free to edit </h1>
+            <div class="fields text ">
+
+                <div class="text-inputs">
+
+                    <div class="text-input l-flex l-flex-column">
+                        <label class="label" for="bb"> Large claims </label>
+                        <input class="input" id="bb" name="bb" type="text" />
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- :End Free Text -->
+
+    </template>
+    <!-- :End Free Text Template -->
+
+
+    <!-- :Begin File/URL input Template -->
+    <template id="sazx_wizard_template_file_url">
+        <!-- :Begin FIle/Url import Question   -->
+        <div class="form">
+            <h1 class="title"> Import the CSV </h1>
+            <div class="fields file-url l-flex l-flex-column">
+
+                <div class="tab-view l-flex l-flex-column">
+                    <div class="header l-flex l-flex-row">
+                        <button for="file" onclick="tabClick(event)" class="button active">
+                            From File </button>
+                        <button for="url" onclick="tabClick(event)" class="button "> From
+                            URL </button>
+                    </div>
+                    <div class="body">
+                        <div id="file" class="tab active">
+                            <div class="file-input l-flex l-flex-column l-center-vr l-center-hr">
+                                <button onclick="fileChooserClicked(event)" class="button">
+                                    CHoose File </button>
+                                <input class="input" accept="text/csv" onchange="fileChooserChanged(event)" type="file"
+                                    name="placeholder">
+                                <p class="file-name"> dsfjskfjsdjk, </p>
+                            </div>
+                        </div>
+                        <div id="url" class="tab ">
+                            <div class="url-input l-flex l-flex-column">
+                                <label class="label" for="bb"> CSV File URL </label>
+                                <input class="input" id="bb" name="bb" type="url" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        <!-- :End FIle/Url import Question   -->
+
+    </template>
+    <!-- :End File/URL input Template -->
+
+
+
+
 
 </body>
 
