@@ -1,5 +1,12 @@
 
 
+
+/** 
+ * A files store. a common store to access a file from local or url
+ * 
+*/
+let files = {};
+
 /**
  * A helper function that handles tab clickes, and switches between active tabs
  * @param {*} event 
@@ -41,9 +48,15 @@ function fileChooserClicked(event){
 
 function fileChooserChanged(event){
     let input = event.target;
-    let fileInput = input.closest(".file-input");
-    let fileNameOutput = fileInput.querySelector(".file-name");
+    let sazxFileInput = input.closest(".file-input");
+    let fileNameOutput = sazxFileInput.querySelector(".file-name");
     fileNameOutput.innerText = input.files[0].name;
+
+    /**
+     * Update the files store
+     */
+
+    files[ input.name ] = input.files[0];
 }
 
 /**
