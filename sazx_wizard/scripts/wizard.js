@@ -92,7 +92,6 @@ function navigateStep(direction) {
 
 
     nextStep.classList.add("current");
-    nextStepIndicator.classList.add("current");
 
 
 
@@ -100,14 +99,19 @@ function navigateStep(direction) {
      * Updated the completed steps indicator
      */
 
-    let activatedStepIndex = Number.parseInt(nextStepId) - 1;
+    let activatedStepIndex = Number.parseInt(nextStepId);
     let indicators = progressesDOM.querySelectorAll(".item-wrapper");
+
     for (let i = 0; i < activatedStepIndex; i++) {
         indicators[i].classList.add("passed");
     }
-    for (let i = activatedStepIndex; i < progressesDOM.length - 1; i++) {
+    debugger;
+
+    for (let i = activatedStepIndex; i < progressesDOM.childElementCount - 1; i++) {
         indicators[i].classList.remove("passed");
     }
+    // set the current indicator
+    nextStepIndicator.classList.add("current");
 
 
     /**
@@ -153,7 +157,7 @@ function previousStep(event) {
 function cancelWizard(event) {
     console.log("Cancelling the wizard process");
 
-}
+};
 
 
 const wizardConfig = {
@@ -339,7 +343,7 @@ const wizardConfig = {
 }
 
 
-console.log(new Date());
+console.log("HI");
 
 /**
  * Run this script on the page load
