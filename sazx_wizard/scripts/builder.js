@@ -14,7 +14,7 @@ let stepTemplate;
 let radioButtomFormTemplate;
 let freeTextFormTemplate;
 let fileUrlFormTemplate;
-
+let columnMapperFormTemplate;
 
 /**
  * 
@@ -40,6 +40,7 @@ let build = function (config, rootDomId) {
     radioButtomFormTemplate = document.querySelector("#sazx_wizard_template_radio_button");
     freeTextFormTemplate = document.querySelector("#sazx_wizard_template_free_text");
     fileUrlFormTemplate = document.querySelector("#sazx_wizard_template_file_url");
+    columnMapperFormTemplate = document.querySelector("#sazx_wizard_template_column-mapper");
     /**
      * Save the reffernces of  all the steps parent and  progress indicators parent 
      */
@@ -97,10 +98,16 @@ function buildStep(stepConfig, index) {
                 break;
             }
 
-            case "file" :{
-                step.append( buildFileUrlQuestion( question ) );
+            case "file": {
+                step.append(buildFileUrlQuestion(question));
                 break;
             }
+
+            case "column_mapper": {
+                step.append(buildColumnMapperQuestion(question));
+                break;
+            }
+
             default: {
                 console.error(question.type, " is not a supported question type");
             }
@@ -217,18 +224,82 @@ function buildFreeTextQuestion(questionConfig) {
 
 function buildFileUrlQuestion(questionConfig) {
     let questionDOM = fileUrlFormTemplate.content.firstElementChild.cloneNode(true);
-    
-    let title= questionDOM.querySelector(".title");
-        title.innerText = questionConfig.description;
 
-    let fileInput =   questionDOM.querySelector(".file-input .input");
-        fileInput.setAttribute( "name" , questionConfig.name); 
-        
-        /**
-         * FIle Url not implemented yet
-         */
-    
-    
+    let title = questionDOM.querySelector(".title");
+    title.innerText = questionConfig.description;
+
+    let fileInput = questionDOM.querySelector(".file-input .input");
+    fileInput.setAttribute("name", questionConfig.name);
+
+    /**
+     * FIle Url not implemented yet
+     */
+
+
     return questionDOM;
 
+}
+
+
+// Column mapper builder
+
+function buildColumnMapperQuestion(questionConfig) {
+
+    let questionDOM = columnMapperFormTemplate.content.firstElementChild.cloneNode(true);
+    let title = questionDOM.querySelector(".title");
+    title.innerText = questionConfig.description;
+
+
+    // Build the table rows
+    let tableBody = questionDOM.querySelector("table tbody");
+    let bodyRowTemplate = questionDOM.querySelector("table tbody .tr-template");
+    let bodyRowFileColumnSelectTemplate = questionDOM.querySelector("table tbody .select-template");
+    let bodyRowFileColumnOptionTemplate = questionDOM.querySelector("table tbody .select-option-template");
+    questionConfig.columns.forEach( (column, rowIndex) => {
+
+        let bodyRow = bodyRowTemplate.content.firstElementChild.cloneNode(true);
+
+
+        // fileColumnArray , shall be read from file
+        let fileColumnArray = [
+            "File Column 1",
+            "File Column 2",
+            "File Column 3",
+            "File Column 4",
+        ];
+
+
+
+        let fileColumn = bodyRow.querySelector(".file-column");
+        let select = bodyRowFileColumnSelectTemplate.content.firstElementChild.cloneNode(true);
+        select.setAttribute("name", rowIndex );
+
+        fileColumnArray.forEach( (column,optionIndex) =>{
+
+            let option = bodyRowFileColumnOptionTemplate.content.firstElementChild.cloneNode(true);
+                option.setAttribute("value", optionIndex );
+                option.innerText = column;
+
+                select.append( option );
+
+
+        } );
+
+        fileColumn.append( select );
+
+
+
+
+
+        let mapToColumn = bodyRow.querySelector(".map-to");
+        mapToColumn.querySelector(".label").innerText = column;
+        
+        tableBody.append( bodyRow );
+    })
+
+
+
+
+
+    return questionDOM;
 }

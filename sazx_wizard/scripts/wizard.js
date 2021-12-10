@@ -192,20 +192,14 @@ const wizardConfig = {
                     description: "Ephrem Tamiru - Negresh Nebere",
                     file : "file1",
                     columns: [
-                        "A",
-                        "B",
-                        "C",
-                        "D",
-                        "E"
+                        
+                        "Column One",
+                        "Column Two",
+                        "Column Thre",
+                        "Column FOur",
+                      
                     ],
                 
-
-                },
-
-                {
-                    type: "file",
-                    name: "file2",
-                    description: "TDF convoys along A-2 highway"                  
 
                 }
             ]

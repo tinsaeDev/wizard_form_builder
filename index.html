@@ -125,44 +125,31 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>
-                                <select>
-                                    <option> One </option>
-                                    <option> Two </option>
-                                    <option> THre </option>
-                                </select>
-                            </td>
-                            <td>
-                                <p> My Cell Name </p>
-                            </td>
-                        </tr>
+                        <template class="tr-template">
+                            <tr>
+                                <td class="file-column">
+                                </td>
+                                <td class="map-to">
+                                    <p class="label"> My Cell Name </p>
+                                </td>
+                            </tr>
+                        </template>
 
-                        <tr>
-                            <td>
-                                <select>
-                                    <option> One </option>
-                                    <option> Two </option>
-                                    <option> THre </option>
-                                </select>
-                            </td>
-                            <td>
-                                <p> My Cell Name </p>
-                            </td>
-                        </tr>
+                        <!-- WIll be inserted into tr > file column                            
+                            I put it here for performance reasons
+                              -->
+                        <template class="select-template">
+                            <select class="select">                              
+                            </select>
+                        </template>
 
-                        <tr>
-                            <td>
-                                <select>
-                                    <option> One </option>
-                                    <option> Two </option>
-                                    <option> THre </option>
-                                </select>
-                            </td>
-                            <td>
-                                <p> My Cell Name </p>
-                            </td>
-                        </tr>
+                        <!-- WIll be inserted into tr > file column > select                           
+                            I put it here for performance reasons
+                              -->
+                        <template class="select-option-template">
+                            <option class="option"> One </option>
+                        </template>
+
                     </tbody>
                 </table>
             </div>
