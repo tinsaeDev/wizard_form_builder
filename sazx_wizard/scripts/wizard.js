@@ -183,6 +183,35 @@ const wizardConfig = {
 
 
         {
+            label: "Collumn Mapper",
+            questions: [
+                {
+
+                    type: "column_mapper",
+                    name: "mapper1",
+                    description: "Ephrem Tamiru - Negresh Nebere",
+                    file : "file1",
+                    columns: [
+                        "A",
+                        "B",
+                        "C",
+                        "D",
+                        "E"
+                    ],
+                
+
+                },
+
+                {
+                    type: "file",
+                    name: "file2",
+                    description: "TDF convoys along A-2 highway"                  
+
+                }
+            ]
+        },
+
+        {
             label: "Radio Button Inputs",
             questions: [
                 {
