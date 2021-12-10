@@ -70,13 +70,13 @@
 }
 .sazx-wizard > .content > .steps {
   flex-grow: 1;
-  padding: 3rem;
+  padding: 3rem 1rem 1rem 1rem;
+  overflow: auto;
 }
 .sazx-wizard > .content > .steps > .step {
   display: none;
   height: 100%;
   width: 100%;
-  overflow: auto;
 }
 .sazx-wizard > .content > .steps > .step > .form {
   width: 100%;

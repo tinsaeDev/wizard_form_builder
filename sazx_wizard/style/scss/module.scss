@@ -112,13 +112,15 @@
     flex-grow: 1;
     & > .steps {
       flex-grow: 1;
-      padding: 3rem;
+      padding: 3rem 1rem 1rem 1rem ;
+      overflow: auto;
+
+      
 
       & > .step {
         display: none;
         height: 100%;
         width: 100%;
-        overflow: auto;
 
         & > .form {
           width: 100%;

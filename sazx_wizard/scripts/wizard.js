@@ -122,7 +122,9 @@ function nextStep(event) {
      * Disable next step button if reached the last step
      */
 
-    if (stepsDOM.length === Number.parseInt(stepID)) {
+    debugger;
+
+    if ( stepsDOM.childElementCount - 1 === Number.parseInt(stepID)) {
         event.target.classList.add("hidden");
     }
 
@@ -138,7 +140,7 @@ function previousStep(event) {
      * Disable the previous  step button if reached the first step
      */
 
-    if (1 === Number.parseInt(stepID)) {
+    if (0 === Number.parseInt(stepID)) {
         event.target.classList.add("hidden");
     }
 
@@ -160,8 +162,7 @@ const wizardConfig = {
     steps: [
 
         {
-
-            label: "Step 1 Label",
+            label: "File / URL Inputs",
             questions: [
                 {
                     type: "radio",
@@ -184,17 +185,122 @@ const wizardConfig = {
                         }
                     ]
 
+                },
+
+                {
+                    type: "radio",
+                    name: "model3",
+                    description: "Mockup web site - wizard?",
+                    options: [
+                        {
+                            value: "f",
+                            title: "Frequency",
+                        },
+
+                        {
+                            value: "s",
+                            title: "Severity",
+                        },
+
+                        {
+                            value: "d",
+                            title: "Demand",
+                        }
+                    ]
+
+                }
+            ]
+
+
+        },
+
+
+        {
+            label: "Radio Button Inputs",
+            questions: [
+                {
+                    type: "radio",
+                    name: "model",
+                    description: "Mockup web site - wizard?",
+                    options: [
+                        {
+                            value: "f",
+                            title: "Frequency",
+                        },
+
+                        {
+                            value: "s",
+                            title: "Severity",
+                        },
+
+                        {
+                            value: "d",
+                            title: "Demand",
+                        }
+                    ]
+
+                },
+
+                {
+                    type: "radio",
+                    name: "model3",
+                    description: "Mockup web site - wizard?",
+                    options: [
+                        {
+                            value: "f",
+                            title: "Frequency",
+                        },
+
+                        {
+                            value: "s",
+                            title: "Severity",
+                        },
+
+                        {
+                            value: "d",
+                            title: "Demand",
+                        }
+                    ]
+
+                }
+            ]
+
+
+        },
+        {
+            label: "Free Text Inputs",
+            questions: [
+
+
+                {
+                    type: "text",
+                    name: "model2",
+                    description: "No transactions meet your selected criteria?",
+                    inputs : [
+                        {
+                            name: "f",
+                            label: "Frequency",
+                        },
+
+                        {
+                            name: "s",
+                            label: "Severity",
+                        },
+
+                        {
+                            name: "d",
+                            label: "Demand",
+                        }
+                    ]
                 }
             ]
 
 
         }
 
+
     ]
 }
-
-
-console.log(new Date());
 
 /**
  * Run this script on the page load
