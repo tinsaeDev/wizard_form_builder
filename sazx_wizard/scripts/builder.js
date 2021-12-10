@@ -181,7 +181,7 @@ function buildRadioQuestion(questionConfig) {
         input.setAttribute("value", option.value);
 
         label.setAttribute("for", `sazx-${questionConfig.name}-${option.value}`)
-        label.innerText = option.title;
+        label.innerText = option.label;
 
         radioGroup.append(sazxRadioButton);
     });

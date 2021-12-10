@@ -4,179 +4,221 @@ const formConfig = {
     title: "Here goes the wizard title",
     steps: [
 
-
+        // Step 1 - Radio
         {
-            label: "Result Table",
+
+            label: "Model",
             questions: [
                 {
-
-                    type: "result",
-                    description: "Ephrem Tamiru - Negresh Nebere",
-                    data : {
-                        head : [
-                            "column 1",
-                            "column 2",
-                            "column 3",
-                            "column 4",
-                        ],
-                        body : [
-                            [
-                                "Cell 1",
-                                "Cell 2",
-                                "Cell 3",
-                                "Cell 4",
-
-                            ],
-                            [
-                                "Cell 1",
-                                "Cell 2",
-                                "Cell 3",
-                                "Cell 4",
-
-                            ],
-                            [
-                                "Cell 1",
-                                "Cell 2",
-                                "Cell 3",
-                                "Cell 4",
-
-                            ],
-                            
-                        ]
-                    }
-                
-
-                }
-            ]
-        },
-
-        {
-            label: "File / URL Inputs",
-            questions: [
-                {
-                    type: "file",
-                    name: "file1",
-                    description: "Getachew Reda's interview"                  
-
-                },
-
-                {
-                    type: "file",
-                    name: "file2",
-                    description: "TDF convoys along A-2 highway"                  
-
+                    type: "radio",
+                    description: "What do you want to Model?",
+                    name: "model",
+                    options: [
+                        {
+                            label: "Frequency",
+                            value: "f"
+                        },
+                        {
+                            label: "Severity",
+                            value: "s"
+                        },
+                        {
+                            label: "Demand",
+                            value: "d"
+                        }
+                    ]
                 }
             ]
 
 
         },
-
-
+        // Step 2 - file
         {
-            label: "Collumn Mapper",
+
+            label: "Upload CSV",
+            questions: [
+                {
+                    type: "file",
+                    description: "Import CSV file?",
+                    name: "csv1"
+                }
+            ]
+        },
+
+        // Step 3 - Column Mapping
+        {
+            label: "Map Columns",
             questions: [
                 {
 
                     type: "column_mapper",
                     name: "mapper1",
-                    description: "Ephrem Tamiru - Negresh Nebere",
-                    file : "file1",
+                    description: "Map the CSV file collumns",
+                    file: "csv1",
                     columns: [
-                        
                         "Column One",
                         "Column Two",
                         "Column Thre",
                         "Column FOur",
-                      
                     ],
-                
+
 
                 }
             ]
         },
 
+        // Step 4 -Radio
         {
-            label: "Radio Button Inputs",
+
+            label: "Choose Model",
             questions: [
                 {
                     type: "radio",
-                    name: "model",
-                    description: "Mockup web site - wizard?",
+                    description: "Choose Model Type",
+                    name: "model_type",
                     options: [
                         {
-                            value: "f",
-                            title: "Frequency",
+                            label: "GLM",
+                            value: "GLM"
                         },
-
                         {
-                            value: "s",
-                            title: "Severity",
+                            label: "GBM",
+                            value: "GBM"
                         },
-
                         {
-                            value: "d",
-                            title: "Demand",
+                            label: "GAM",
+                            value: "GAM"
+                        },
+                        {
+                            label: "BYOM",
+                            value: "BYOM"
                         }
                     ]
-
-                },
-
-                {
-                    type: "radio",
-                    name: "model3",
-                    description: "Mockup web site - wizard?",
-                    options: [
-                        {
-                            value: "f",
-                            title: "Frequency",
-                        },
-
-                        {
-                            value: "s",
-                            title: "Severity",
-                        },
-
-                        {
-                            value: "d",
-                            title: "Demand",
-                        }
-                    ]
-
                 }
             ]
 
 
         },
+
+
+        // Step 5  - Free Text         
         {
-            label: "Free Text Inputs",
+            label: "Define Label for this",
             questions: [
 
 
                 {
                     type: "text",
                     name: "model2",
-                    description: "No transactions meet your selected criteria?",
+                    description: "Plase Enter the fields?",
                     inputs: [
                         {
-                            name: "f",
-                            label: "Frequency",
+                            name: "large_claims",
+                            label: "Large claims",
                         },
 
                         {
-                            name: "s",
-                            label: "Severity",
+                            name: "annuities",
+                            label: "Annuities",
                         },
 
                         {
-                            name: "d",
-                            label: "Demand",
+                            name: "inflation",
+                            label: "Inflation",
+                        },
+                        {
+                            name: "ibnr",
+                            label: "IBNR",
+                        },
+                        {
+                            name: "long_tail",
+                            label: "Long tail",
+                        },
+                        {
+                            name: "ri_costs",
+                            label: "RI costs",
                         }
+
                     ]
                 }
             ]
 
 
-        }
+        },
+
+
+        // Step 6 - Formula
+
+        {
+            label: "Formula",
+            questions: [
+
+
+                {
+                    type: "text",
+                    name: "formula",
+                    description: "Plase Enter the formula",
+                    inputs: [
+                        {
+                            name: "formula",
+                            label: "Edit the formula",
+                        },                   
+                    ]
+                }
+            ]
+
+
+        },
+
+
+
+        {
+            label: "Result",
+            questions: [
+                {
+
+                    type: "result",
+                    description: "Calculated Result",
+                    data: {
+                        head: [
+                            "column 1",
+                            "column 2",
+                            "column 3",
+                            "column 4",
+                        ],
+                        body: [
+                            [
+                                "Cell 1",
+                                "Cell 2",
+                                "Cell 3",
+                                "Cell 4",
+
+                            ],
+                            [
+                                "Cell 1",
+                                "Cell 2",
+                                "Cell 3",
+                                "Cell 4",
+
+                            ],
+                            [
+                                "Cell 1",
+                                "Cell 2",
+                                "Cell 3",
+                                "Cell 4",
+
+                            ],
+
+                        ]
+                    }
+
+
+                }
+            ]
+        },
+
+
+
 
 
     ]
@@ -187,7 +229,7 @@ console.log("");
 /**
  * Run this script on the page load
  */
- (function () {
+(function () {
 
     if (document.readyState === "complete") {
         /**

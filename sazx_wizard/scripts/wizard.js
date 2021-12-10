@@ -105,8 +105,6 @@ function navigateStep(direction) {
     for (let i = 0; i < activatedStepIndex; i++) {
         indicators[i].classList.add("passed");
     }
-    debugger;
-
     for (let i = activatedStepIndex; i < progressesDOM.childElementCount - 1; i++) {
         indicators[i].classList.remove("passed");
     }
