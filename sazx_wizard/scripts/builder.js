@@ -15,6 +15,7 @@ let radioButtomFormTemplate;
 let freeTextFormTemplate;
 let fileUrlFormTemplate;
 let columnMapperFormTemplate;
+let resultTableFormTemplate;
 
 /**
  * 
@@ -41,6 +42,8 @@ let build = function (config, rootDomId) {
     freeTextFormTemplate = document.querySelector("#sazx_wizard_template_free_text");
     fileUrlFormTemplate = document.querySelector("#sazx_wizard_template_file_url");
     columnMapperFormTemplate = document.querySelector("#sazx_wizard_template_column-mapper");
+    resultTableFormTemplate = document.querySelector("#sazx_wizard_template_result_table");
+
     /**
      * Save the reffernces of  all the steps parent and  progress indicators parent 
      */
@@ -107,6 +110,12 @@ function buildStep(stepConfig, index) {
                 step.append(buildColumnMapperQuestion(question));
                 break;
             }
+
+            case "result" : {
+                step.append(buildResultsTableQuestion(question));
+                break;
+
+            } 
 
             default: {
                 console.error(question.type, " is not a supported question type");
@@ -303,3 +312,45 @@ function buildColumnMapperQuestion(questionConfig) {
 
     return questionDOM;
 }
+
+
+// Result table builder
+function buildResultsTableQuestion( questionConfig ){
+    let questionDOM = resultTableFormTemplate.content.firstElementChild.cloneNode(true);
+
+    let title = questionDOM.querySelector(".title");
+        title.innerText = questionConfig.description;
+
+        let tableHeadRow = questionDOM.querySelector("table thead tr");
+        let tableHeadRowCellTemplate = tableHeadRow.querySelector(".template-head-tr-th");
+
+        // Create table header cells from data
+        questionConfig.data.head.forEach( column=>{
+            let cell = tableHeadRowCellTemplate.content.firstElementChild.cloneNode(true);
+            cell.innerText = column;
+
+            tableHeadRow.append( cell );
+        } );
+
+        // Create table rows from data
+        let tableBody = questionDOM.querySelector("table tbody");
+        let tableBodyRowTemplate = tableBody.querySelector(".template-body-tr");
+        questionConfig.data.body.forEach( row=>{
+            let tableBodyRow = tableBodyRowTemplate.content.firstElementChild.cloneNode( true );
+            let tableBodyCellTemplate = tableBodyRow.querySelector(".template-body-tr-td");
+
+            row.forEach( column=>{
+                let tableBodyCell = tableBodyCellTemplate.content.firstElementChild.cloneNode( true );
+                tableBodyCell.innerText = column;
+
+                tableBodyRow.append( tableBodyCell );
+
+            } );
+
+        tableBody.append( tableBodyRow );
+        } );
+
+    return questionDOM;
+} 
+
+

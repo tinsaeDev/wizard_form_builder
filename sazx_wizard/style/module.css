@@ -143,7 +143,7 @@
   padding: 0.5rem 2rem;
   font-weight: bold;
   cursor: pointer;
-  background: var(--sw-color-neu-secondary);
+  background: var(--sw-color-primary);
   color: var(--sw-color-thershary);
 }
 .sazx-wizard > .content > .steps > .step > .form > .fields.file-url .tab-view .body .tab .file-input .input {
@@ -184,6 +184,43 @@
 }
 .sazx-wizard > .content > .steps > .step > .form > .fields.column-mapper > table > tbody > tr > td > select {
   width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table {
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > thead {
+  height: 2.5rem;
+  background-color: var(--sw-color-primary);
+  color: var(--sw-color-neu-primary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > thead > tr > th {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr {
+  height: 2rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr:nth-child(even) {
+  background-color: var(--sw-color-secondary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr:nth-child(odd) {
+  background-color: var(--sw-color-thershary);
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr > td {
+  padding: 0.5rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > table > tbody > tr > td > select {
+  width: 100%;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > .download {
+  width: 100%;
+  margin-top: 1rem;
+}
+.sazx-wizard > .content > .steps > .step > .form > .fields.result-table > .download > .button {
+  padding: 0.5rem 2rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: var(--sw-color-primary);
+  color: var(--sw-color-thershary);
 }
 .sazx-wizard > .content > .steps > .step.current {
   display: flex;

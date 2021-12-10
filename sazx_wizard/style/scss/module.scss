@@ -112,10 +112,8 @@
     flex-grow: 1;
     & > .steps {
       flex-grow: 1;
-      padding: 3rem 1rem 1rem 1rem ;
+      padding: 3rem 1rem 1rem 1rem;
       overflow: auto;
-
-      
 
       & > .step {
         display: none;
@@ -135,7 +133,6 @@
           }
 
           & > .fields {
-            
           }
 
           & > .fields.radio {
@@ -211,7 +208,7 @@
                       padding: 0.5rem 2rem;
                       font-weight: bold;
                       cursor: pointer;
-                      background: var(--sw-color-neu-secondary);
+                      background: var(--sw-color-primary);
                       color: var(--sw-color-thershary);
                     }
                     .input {
@@ -240,13 +237,12 @@
             & > table {
               width: 100%;
               & > thead {
-
                 height: 2.5rem;
                 background-color: var(--sw-color-primary);
                 color: var(--sw-color-neu-primary);
 
                 & > tr {
-                  & > th{
+                  & > th {
                     padding: 0.5rem;
                   }
                 }
@@ -263,17 +259,62 @@
                     background-color: var(--sw-color-thershary);
                   }
 
-
                   & > td {
-
                     padding: 0.5rem;
-                    & > select  {
+                    & > select {
                       width: 100%;
                     }
-                   
                   }
                 }
+              }
+            }
+          }
 
+          & > .fields.result-table {
+            & > table {
+              width: 100%;
+              & > thead {
+                height: 2.5rem;
+                background-color: var(--sw-color-primary);
+                color: var(--sw-color-neu-primary);
+
+                & > tr {
+                  & > th {
+                    padding: 0.5rem;
+                  }
+                }
+              }
+
+              & > tbody {
+                & > tr {
+                  height: 2rem;
+
+                  &:nth-child(even) {
+                    background-color: var(--sw-color-secondary);
+                  }
+                  &:nth-child(odd) {
+                    background-color: var(--sw-color-thershary);
+                  }
+
+                  & > td {
+                    padding: 0.5rem;
+                    & > select {
+                      width: 100%;
+                    }
+                  }
+                }
+              }
+            }
+
+            & > .download {
+              width: 100%;
+              margin-top: 1rem;
+              & > .button {
+                padding: 0.5rem 2rem;
+font-weight: bold;
+cursor: pointer;
+background: var(--sw-color-primary);
+color: var(--sw-color-thershary);
               }
             }
           }

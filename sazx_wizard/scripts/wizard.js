@@ -160,6 +160,52 @@ const wizardConfig = {
     title: "Here goes the wizard title",
     steps: [
 
+
+        {
+            label: "Result Table",
+            questions: [
+                {
+
+                    type: "result",
+                    description: "Ephrem Tamiru - Negresh Nebere",
+                    data : {
+                        head : [
+                            "column 1",
+                            "column 2",
+                            "column 3",
+                            "column 4",
+                        ],
+                        body : [
+                            [
+                                "Cell 1",
+                                "Cell 2",
+                                "Cell 3",
+                                "Cell 4",
+
+                            ],
+                            [
+                                "Cell 1",
+                                "Cell 2",
+                                "Cell 3",
+                                "Cell 4",
+
+                            ],
+                            [
+                                "Cell 1",
+                                "Cell 2",
+                                "Cell 3",
+                                "Cell 4",
+
+                            ],
+                            
+                        ]
+                    }
+                
+
+                }
+            ]
+        },
+
         {
             label: "File / URL Inputs",
             questions: [

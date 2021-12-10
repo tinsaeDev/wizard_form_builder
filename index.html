@@ -46,7 +46,7 @@
 
                             <!-- :Begin Wizard step container -->
                             <div class="steps">
-                            
+
 
                             </div>
                             <!-- :End Wizard step container -->
@@ -105,12 +105,50 @@
         </div>
     </template>
     <!-- :End progress indicator template -->
-   
+
     <!-- 
 
         ### FOrm
 
      -->
+
+    <!-- :Begin Results Table Template -->
+    <template id="sazx_wizard_template_result_table">
+        <!-- :Begin Column Mapper Form   -->
+        <div class="form">
+            <h1 class="title"> Result Table </h1>
+            <div class="fields result-table ">
+                <table>
+                    <thead>
+                        <tr>
+                            <template class="template-head-tr-th">
+                                <th> </th>
+                            </template>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template  class="template-body-tr">
+                            <tr>
+                                <template  class="template-body-tr-td">
+                                    <td> </td>
+                                </template>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+                <div class="download l-flex l-center-vr l-center-hr">
+                    <button class="button"> Download </button>
+                </div>
+
+            </div>
+
+        </div>
+        <!-- :End Column Mapper Form   -->
+
+    </template>
+
+    <!-- :End Results Table Template -->
+
     <!-- :Begin Column Mapper Template -->
     <template id="sazx_wizard_template_column-mapper">
         <!-- :Begin Column Mapper Form   -->
@@ -121,7 +159,7 @@
                     <thead>
                         <tr>
                             <th> File Column </th>
-                            <th> Map tO </th>
+                            <th> Map To </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -130,7 +168,7 @@
                                 <td class="file-column">
                                 </td>
                                 <td class="map-to">
-                                    <p class="label"> My Cell Name </p>
+                                    <p class="label"> </p>
                                 </td>
                             </tr>
                         </template>
@@ -139,7 +177,7 @@
                             I put it here for performance reasons
                               -->
                         <template class="select-template">
-                            <select class="select">                              
+                            <select class="select">
                             </select>
                         </template>
 
@@ -176,7 +214,7 @@
                     </template>
 
 
-    
+
 
                 </div>
 
@@ -206,7 +244,7 @@
 
                 </div>
 
-                
+
 
             </div>
         </div>
