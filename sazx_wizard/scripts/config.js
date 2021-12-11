@@ -115,6 +115,7 @@ const formConfig = {
                         {
                             name: "large_claims",
                             label: "Large claims",
+                            default : "this is default value"
                         },
 
                         {
@@ -162,6 +163,7 @@ const formConfig = {
                         {
                             name: "formula",
                             label: "Edit the formula",
+                            default : "(Frequency*(Severity*(1+Large Claims)))*Inflation*IBNR*LongTail*RI costs+Annuities"
                         },
                     ]
                 }

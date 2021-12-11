@@ -211,6 +211,7 @@ function buildFreeTextQuestion(questionConfig) {
         textLabel.innerText = input.label;
 
         let textInput = sazxFreeInput.querySelector(".input");
+        textInput.setAttribute("value",  input.default ?? "");
         textInput.setAttribute("name", input.name);
         textInput.setAttribute("id", `sazx-${questionConfig.name}-${input.name}`);
 
@@ -276,7 +277,8 @@ function buildColumnMapperQuestion(questionConfig) {
 
         // Remove all existing  rows from table body, before adding new one
     
-        let allRows = tableBody.querySelectorAll(".tr");
+        debugger;
+        let allRows = tableBody.querySelectorAll("tr");
             allRows.forEach( row=>{
                 row.remove();
             } )
