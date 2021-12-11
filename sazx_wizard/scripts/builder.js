@@ -259,52 +259,94 @@ function buildColumnMapperQuestion(questionConfig) {
     title.innerText = questionConfig.description;
 
 
+
+
     // Build the table rows
     let tableBody = questionDOM.querySelector("table tbody");
     let bodyRowTemplate = questionDOM.querySelector("table tbody .tr-template");
     let bodyRowFileColumnSelectTemplate = questionDOM.querySelector("table tbody .select-template");
     let bodyRowFileColumnOptionTemplate = questionDOM.querySelector("table tbody .select-option-template");
-    questionConfig.columns.forEach( (column, rowIndex) => {
-
-        let bodyRow = bodyRowTemplate.content.firstElementChild.cloneNode(true);
-
-
-        // fileColumnArray , shall be read from file
-        let fileColumnArray = [
-            "File Column 1",
-            "File Column 2",
-            "File Column 3",
-            "File Column 4",
-        ];
 
 
 
-        let fileColumn = bodyRow.querySelector(".file-column");
-        let select = bodyRowFileColumnSelectTemplate.content.firstElementChild.cloneNode(true);
-        select.setAttribute("name", rowIndex );
+    /**
+     * Register file change event, and re render the column mapper everytime the csv file is changed
+     */
+     files.addChangeListener( questionConfig.file, event=>{
 
-        fileColumnArray.forEach( (column,optionIndex) =>{
-
-            let option = bodyRowFileColumnOptionTemplate.content.firstElementChild.cloneNode(true);
-                option.setAttribute("value", optionIndex );
-                option.innerText = column;
-
-                select.append( option );
-
-
-        } );
-
-        fileColumn.append( select );
+        // Remove all existing  rows from table body, before adding new one
+    
+        let allRows = tableBody.querySelectorAll(".tr");
+            allRows.forEach( row=>{
+                row.remove();
+            } )
 
 
+// C
+        questionConfig.columns.forEach( (column, rowIndex) => {
+
+            /**
+             * Read the contens of the CSV file,
+             */
+
+            let fileReader = new FileReader();
+                fileReader.onload = function(event){
+
+                    let bodyRow = bodyRowTemplate.content.firstElementChild.cloneNode(true);    
+                    let fileColumn = bodyRow.querySelector(".file-column");
+                    let select = bodyRowFileColumnSelectTemplate.content.firstElementChild.cloneNode(true);
+                    select.setAttribute("name", rowIndex );
 
 
+                    let result = event.target.result;
 
-        let mapToColumn = bodyRow.querySelector(".map-to");
-        mapToColumn.querySelector(".label").innerText = column;
+                    let getCSVCOlumns=(result)=>{
+                        let lines = result.split('\n');
+                        let headerLine = lines[0];
+                        return headerLine.split(",");
+                    }
+
+
+                    let csvColums = getCSVCOlumns(result);            
+                    csvColums.forEach( (column,optionIndex) =>{
+            
+                        let option = bodyRowFileColumnOptionTemplate.content.firstElementChild.cloneNode(true);
+                            option.setAttribute("value", optionIndex );
+                            option.innerText = column;
+            
+                            select.append( option );
+            
+            
+                    } );
+            
+                    fileColumn.append( select );
+            
+            
+            
+            
+            
+                    let mapToColumn = bodyRow.querySelector(".map-to");
+                    mapToColumn.querySelector(".label").innerText = column;
+                    
+                    tableBody.append( bodyRow );
+
+
+                }
+                fileReader.onerror = function(event){
+                    console.log( "Error reading", event );
+                }
+
+
+                fileReader.readAsText( files[ questionConfig.file ] );
+
+
+        })
+    
+    
+       
         
-        tableBody.append( bodyRow );
-    })
+    } );
+
 
 
 

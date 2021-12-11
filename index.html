@@ -31,7 +31,7 @@
             <div>
                 <div id="wizwiz">
 
-                    <div class="sazx-wizard l-flex l-flex-row">
+                    <form class="sazx-wizard l-flex l-flex-row">
 
                         <!-- :Begin Wizard Side progress  -->
                         <div class="nav">
@@ -56,13 +56,13 @@
                             <!-- :Begin Wizard  Steps  Nagivation -->
                             <div class="nav l-flex l-flex-row l-flex-space-btwn ">
                                 <div>
-                                    <button class="button cancel" onclick="cancelWizard(event)"> Cancell </button>
+                                    <button type="button" class="button cancel" onclick="cancelWizard(event)"> Cancell </button>
                                 </div>
 
                                 <div class="l-flex l-flex-end">
-                                    <button class="button previous hidden" onclick="previousStep(event)"> Previous
+                                    <button type="button" class="button previous hidden" onclick="previousStep(event)"> Previous
                                     </button>
-                                    <button class="button next" onclick="nextStep(event)"> Next </button>
+                                    <button type="button" class="button next" onclick="nextStep(event)"> Next </button>
                                 </div>
 
 
@@ -74,7 +74,7 @@
                         <!-- :End Wizard Main Content -->
 
 
-                    </div>
+                    </form>
                 </div>
 
             </div>
@@ -138,7 +138,7 @@
                     </tbody>
                 </table>
                 <div class="download l-flex l-center-vr l-center-hr">
-                    <button class="button"> Download </button>
+                    <button type="button" class="button"> Download </button>
                 </div>
 
             </div>
@@ -264,15 +264,15 @@
 
                 <div class="tab-view l-flex l-flex-column">
                     <div class="header l-flex l-flex-row">
-                        <button for="file" onclick="tabClick(event)" class="button active">
+                        <button type="button" for="file" onclick="tabClick(event)" class="button active">
                             From File </button>
-                        <button for="url" onclick="tabClick(event)" class="button "> From
+                        <button type="button" for="url" onclick="tabClick(event)" class="button "> From
                             URL </button>
                     </div>
                     <div class="body">
                         <div id="file" class="tab active">
                             <div class="file-input l-flex l-flex-column l-center-vr l-center-hr">
-                                <button onclick="fileChooserClicked(event)" class="button">
+                                <button type="button" onclick="fileChooserClicked(event)" class="button">
                                     CHoose File </button>
                                 <input class="input" accept="text/csv" onchange="fileChooserChanged(event)" type="file"
                                     name="placeholder">

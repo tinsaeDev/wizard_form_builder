@@ -162,7 +162,7 @@ const formConfig = {
                         {
                             name: "formula",
                             label: "Edit the formula",
-                        },                   
+                        },
                     ]
                 }
             ]

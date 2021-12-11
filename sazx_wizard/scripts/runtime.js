@@ -3,9 +3,34 @@
 
 /** 
  * A files store. a common store to access a file from local or url
- * 
+ * WIth Change Subscription Support
 */
-let files = {};
+let files = {
+
+     changeSubscribers : {
+
+     },
+
+    addFile(  fileName ,file ){
+       this[fileName]=file;
+
+       if( this.changeSubscribers[fileName]!==undefined ){
+           this.changeSubscribers[fileName].forEach( subscriberCallBack=>{
+               subscriberCallBack( new Event("changed") );
+           } );
+       }
+
+    },
+
+    addChangeListener(fileName, callback){
+        if( this.changeSubscribers[fileName]===undefined  ){
+            this.changeSubscribers[fileName] = [];
+        }
+       let id = this.changeSubscribers[fileName].push( callback );
+       return id;
+    }
+
+}
 
 /**
  * A helper function that handles tab clickes, and switches between active tabs
@@ -56,7 +81,7 @@ function fileChooserChanged(event){
      * Update the files store
      */
 
-    files[ input.name ] = input.files[0];
+    files.addFile( input.name,input.files[0] );
 }
 
 /**
