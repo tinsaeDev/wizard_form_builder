@@ -27,7 +27,7 @@ The form configuration object has a 2 fields
 
   - **`label`**  Is a string that will be used to indicate the step in the navigation.
     
-    ![jnjk](assets/left-nav-1.png)
+    ![jnjk](documentation/assets/left-nav-1.png)
 
   - **`questions`**  Is an array of questions that the step will render. One step can render multiple questions.
   - 
@@ -49,7 +49,7 @@ This object defines the question that the step will render. Differnt types of qu
     - `result`
   - **`description`** A string value that is used to descripbe about the question.
   
-    ![Question description](assets/question-description-1.png)
+    ![Question description](documentation/assets/question-description-1.png)
 
         
   
@@ -62,7 +62,7 @@ This object defines the question that the step will render. Differnt types of qu
 #### Radio Button
 Radio button type questions are the one that produce inputs that look like the following. user select only one of the options. 
 
-![Radio Button Example](assets/radio-1.png)
+![Radio Button Example](documentation/assets/radio-1.png)
 
 
 Here is a sample radio button form config.
@@ -120,7 +120,7 @@ The above code is equivalent to the following html output
 #### Free Text Input
 Free Text Input type questions are the one that produce inputs that look like the following. user can freely enter text values. as you may can see it on the screenshot  , there are multiple input/label for one question description.
 
-![Free Text Example](assets/free-text-1.png)
+![Free Text Example](documentation/assets/free-text-1.png)
 
 Here is a sample free text form config.
 
@@ -168,14 +168,14 @@ Beside the common fields that all question types support, a free text input ques
   - ***`default`***  : The default value of the input element.
   - ***`label`***  : the string  to be used as the label of the  html input.
 
-    ![Free Text Label Example](assets/free-text-label.png)
+    ![Free Text Label Example](documentation/assets/free-text-label.png)
 
 
 #### CSV file importer
 
 CSV file importer lets you import from local computer or using a url. 
 
-![Free Text Example](assets/csv-importer.png)
+![Free Text Example](documentation/assets/csv-importer.png)
 
 Beside the common fields that all question types support, a CSV file importer  question  requires additional attributes, those are : 
 
@@ -188,7 +188,7 @@ Beside the common fields that all question types support, a CSV file importer  q
 
 Column mapper maps column from the imported CSV file  to those specified in the config.
 
-![Free Text Example](assets/column-mapper.png)
+![Free Text Example](documentation/assets/column-mapper.png)
 
 Beside the common fields that all question types support, a column mapper question  requires additional attributes, those are : 
 
